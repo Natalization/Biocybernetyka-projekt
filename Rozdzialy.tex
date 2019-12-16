@@ -1,0 +1,360 @@
+\chapter{Wprowadzenie do tematu}
+\section{Wstêp}
+Zdolnoœæ ludzkiego mózgu do rozpoznawania i zapamiêtywania twarzy jest niezwyk³a zwa¿ywszy na to, ¿e w ci¹gu swojego ¿ycia mo¿emy zapamiêtaæ setki, jak nie tysi¹ce twarzy. Co wiêcej, jeœli osoba nie jest dotkniêta prozopagnozj¹ ani zaburzeniami widzenia (zaburzenie percepcji wzrokowej, polegaj¹ce na upoœledzeniu zdolnoœci rozpoznawania twarzy znajomych lub widzianych ju¿ osób, a w niektórych przypadkach tak¿e ich wyrazu emocjonalnego), mo¿e ona rozpoznaæ twarze patrz¹c pod ró¿nym k¹tem, w ró¿nym oœwietleniu, nawet po niewielkich zmianach w wygl¹dzie typu nowa fryzura czy okulary. 
+\section{Historia}
+Naukowcy od dawna pracuj¹ nad systemem imituj¹cym umiejêtnoœæ mózgu do rozpoznawania twarzy. 
+W 1966, Bledsoe, stworzy³ system, który potrafi³ sklasyfikowaæ zdjêcia twarzy u¿ywaj¹c algorytmu ³añcucha kodów (chain code). \cite{Bledsoe} By³ te¿ pierwszym, który próbowa³ stworzyæ pó³automatyczny algorytm rozpoznawanie twarzy. Polega³ on na rêcznym zaznaczaniu twarzy przez u¿ytkownika, dziêki czemu komputer móg³ zaklasyfikowaæ j¹ do odpowiedniej osoby.\cite{Bledsoe2}
+
+W 1987 Sirovich i Kriby \cite{Sirovich} wykazali, ¿e na podstawie analizy cech twarzy mo¿na wyró¿niæ zestaw cech tych najbardziej podstawowych. Wykazali równie¿, ¿e potrzebnych jest mniej ni¿ 100 wartoœci aby dok³adnie opisaæ znormalizowan¹ twarz.    
+
+In 1991, Turk i Pentland \cite{cite4} rozwinêli metodê Eigen face dziêki wynalezieniu sposobu detekcji twarzy w obrazie. By³ to pierwszy krok do zautomatyzowania algorytmu rozpoznawania twarzy.
+
+Od 1993 do 2000 the Defense Advanced Research Projects Agency (DARPA) i National Institute of Standards and Technology wesz³y na rynek z now¹ technologi¹ rozpoznawania twarzy (FERET) [5], na któr¹ sk³ada³o siê stworzenie bazy danych zawieraj¹cej zdjêcia twarzy. Znajduje siê w niej 2413, 24-bitowych kolorowych zdjêæ przedstawiaj¹cych 856 ludzi. 
+
+W 2010 roku nast¹pi³a wielka zmiana dla mediów spo³ecznoœciowych i ich u¿ytkowników na ca³ym œwiecie, a mianowicie zaczêto pracê nad tagowaniem zdjêæ na których pojawia³a siê twarz. Jednak¿e dok³adnoœæ algorytmu nie by³a wystarczaj¹ca, dlatego powsta³y technologie u¿ywaj¹ce g³êbokiego uczenia (deep learning) takie jak deep face.[7] By³y one z³o¿one z dziewiêciowarstwowej sieci neuronowej z ponad 120 milionami po³¹czeñ, których trening odbywa³ siê z u¿yciem czterech milionów zdjêæ przes³anych przez u¿ytkowników Facebooka.  
+
+\section{•}
+Komputerowe rozpoznawanie obrazu jest technologi¹ ³¹cz¹c¹ przetwarzanie obrazów z tzw. widzeniem komputerowym. Pozwala ona na skuteczne rozpoznawanie na obrazie wybranego obiektu, takiego jak twarz, budynki, zwierzêta, samochody, charakter pisma itp. Mimo tego, ¿e inne sposoby identyfikacji, takie jak odciski palców czy skanowanie têczówki oka, mog¹ byæ bardziej precyzyjne, wci¹¿ prowadzi siê badania nad rozpoznawaniem twarzy, poniewa¿ jest to metoda nieinwazyjna. Wiêkszoœæ badañ skupia siê na detekcji indywidualnych cech twarzy takich jak oczy, nos, usta, obrys twarzy i opracowywaniu modelu z uwzglêdnieniem umiejscowienia, rozmiaru i wzglêdnego po³o¿enia pomiêdzy tymi cechami. Jednak¿e takie podejœcie jest trudne do opracowania. Badania nad dzia³aniem ludzkiego rozpoznawania twarzy pokaza³o, ¿e indywidualne cechy i ich bezpoœrednie relacje nie s¹ wystarczaj¹ce, aby identyfikacja doros³ych ludzi by³a w pe³ni wydajna. [9] Nie mniej jednak, takie podejœcie pozostaje najpopularniejsze w literaturze komputerowego widzenia.
+
+\section{Zastosowania}
+Jak ju¿ wczeœniej wspomniano, rozpoznawanie twarzy jak i sama jej detekcja mo¿e mieæ ró¿ne zastosowania:
+\begin{itemize}
+\item Automatyczna identyfikacja - u¿ywana do identyfikacji osoby (karty kredytowe, prawo jazdy, paszport, identyfikator pracownika) w kontroli dostêpu,
+\item Identyfikacja osób poszukiwanych lub zaginionych,
+\item Interakcja Cz³owiek-Komputer - sterowanie komputerem za pomoc¹ ruchów g³owy, np. w grach komputerowych (gracz musi za³o¿yæ na g³owê specjalny sprzêt),
+\item Monitoring - wykrywanie i œledzenie twarzy mo¿e s³u¿yæ zwiêkszeniu bezpieczeñstwa w miejscach publicznych, takich jak lotniska, centra handlowe, koncerty czy na prywatnych posesjach.
+\item Filtry w aplikacjach (np. Facebook, Snapchat),
+\item Autoryzacja, logowanie do konta, odblokowanie telefonu
+\end{itemize}
+
+
+\chapter{Konwolucyjne sieci neuronowe}
+\section{Podstawy}
+Konwolucyjne sieci neuronowe, znane te¿ jako CNN czy ConvNet, s¹ sztucznymi sieciami neuronowymi, które najczêœciej maj¹ zastosowanie w analizie obrazów. Oprócz tego, mog¹ byæ wykorzystywane do innej analizy danych jak i zagadnienia klasyfikacji. Ogólnie mo¿na myœleæ o konwolucyjnej sieci neuronowej jako o zwyk³ej, sztucznej sieci neuronowej, która jest wyspecjalizowana w detekcji i rozpoznawaniu wzorów. Dziêki tej umiejêtnoœci konwolucyjne sieci neuronowe s¹ niezwykle przydatne w przetwarzaniu obrazów czy sygna³ów.
+
+\section{Architektura sieci}
+Ka¿da konwolucyjna sieæ neuronowa sk³ada siê z 3 podstawowych warstw: konwolucyjnej, warstwy poolingu i warstwê sp³aszczaj¹c¹.
+\subsection{Warstwa konwolucyjna}
+Neurony tej warstwy zachowuj¹ siê podobnie do tradycyjnych - otrzymuj¹ dane wejœciowe, przekszta³caj¹ je i podaj¹ na wejœcie neuronu kolejnej warstwy. Dane zostaj¹ przekszta³cone za pomoc¹ operacji splotu (ang. convolution - splot). Te konkretnie warstwy w CNN s¹ odpowiedzialne za  wykrywania wzorców w obrazach. Dla ka¿dej z tych warstw nale¿y okreœliæ iloœæ filtrów, które s¹ potrzebne w danej warstwie. W zale¿noœci jaki filtr jest u¿yty, mo¿na wykryæ ró¿ne wzorce, m.in. krawêdzie, okrêgi, tekstury czy ca³e obiekty. Filtry, które wykrywaj¹ proste kszta³ty s¹ zlokalizowane w pocz¹tkowych warstwach. Im g³êbiej, tym bardziej zaawansowane filtry, do bardziej skomplikowanych kszta³tów, s¹ u¿ywane. dlatego g³êbsze s¹ w stanie odnaleŸæ w obrazie konkretne obiekty takie jak oczy, nos, uszy, w³osy, ³uski, pióra czy dziób. Filtry to nic innego jak macierze z odpowiednimi wartoœciami, które zostaj¹ przepuszczone przez obraz i generuj¹ tzw. mapy cech. Aby obliczyæ wartoœæ cechy w macierzy(i,j) w k-tej mapie cech l-tej warstwy, $z_{i,j,k}^l$
+\begin{equation}
+z_{i,j,k}^l = {\text{w}_{k}^l}^T \text{x}_{i,j}^l + b_{k}^l
+\end{equation}   [10], gdzie $\text{w}_{k}^l$ wektor wagi $b_{k}^l$ bias k-tego filtra l-tej warstwy $\text{x}_{i,j}^l$  ³atka danych wejœciowych wyœrodkowanych w (i,j) l-tej warstwy. Filtr $\text{w}_{k}^l$ jest wspó³dzielony, dziêki czemu model jest mniej z³o¿ony i sieæ ³atwiej siê uczy. [10]
+Funkcje aktywacji, dziêki którym uzyskuje siê nieliniowoœæ sieci neuronowych, wprowadzaj¹ mo¿liwoœæ detekcji nieliniowych cech. 
+\begin{equation}
+a_{i,j,k}^l = a(z_{i,j,k}^l)
+\end{equation} 
+Typowymi funkcjami aktywacji s¹ sigmoida, tanh, ReLU.  
+
+\subsection{Warstwa redukuj¹ca (pooling)}
+Zadaniem warstwy redukuj¹cej jest, jak sama nazwa wskazuje, redukcja danych (zmniejszenie rozdzielczoœci mapy cech), aby usprawniæ i przyspieszyæ dzia³anie programu.  Zwykle warstwa ta jest po³o¿ona miêdzy dwoma warstwami konwolucyjnymi. 
+Ka¿da mapa cech warstwy redukuj¹cej jest po³¹czona z odpowiadajac¹ jej map¹ cech z poprzedniej warstwy konwolucyjnej.  
+\begin{wrapfigure}{l}{0.4\textwidth}
+\begin{center}
+\vspace{-20pt}
+\includegraphics[scale=0.6]{7.jpg}
+\end{center}
+\vspace{-20pt}
+\caption{Przygotowanie zdjêcia}
+\vspace{-10pt}
+\end{wrapfigure}
+Najczêœciej spotykan¹ operacj¹ poolingu jest average pooling i max pooling. Na rys. * przedstawiono jak dzia³aj¹ powy¿sze operacje. Rysunek * przedstawia mapê cech dla obrazu liczby 7 powsta³ej po uczeniu dwóch sieci konwolucyjnych. Filtry w pierwszej warstwie zosta³y zaprojektowane do wykrywania krawêdzi, a w drugiej do wykrywania bardziej abstrakcyjnych cech. Dziêki dodawaniu kolejnych warstw konwolucyjnych i redukuj¹cych, mo¿na stopniowo zwiêkszaæ abstrakcyjnoœæ wyekstrahowanych cech. [10]
+\begin{figure} [H]
+\centering
+\includegraphics[scale=0.5]{pool.png}
+\caption{Operacje poolingu}
+\end{figure}
+\subsection{Warstwa sp³aszczaj¹ca}
+Przedostatni¹ warstw¹, przed tradycyjna sieci¹ neuronow¹, której zadaniem jest klasyfikacja danego obiektu, jest warstwa sp³aszczaj¹c. Jej zadaniem jest “sp³aszczenie” wszystkich map cech do pojedynczego wektora, aby mo¿na by³o podaæ te dane na wejœcie kolejnej warstwy sztucznej sieci neuronowej. 
+
+\subsection{Warstwa wyjœcia}
+Zadaniem ostatniej warstwy jest klasyfikacja. Wektory wartoœci map cech zostan¹ podane na wejœcie tej¿e warstwy i na podstawie tych cech sieæ uczy siê i znajduje powi¹zania miêdzy nimi a klas¹, do której ma byæ przyporz¹dkowana.
+%dodaæ obrazek np z klasyfikacj¹ liczb
+
+\chapter{Algorytm}
+\chapter{Zastosowanie konwolucyjnych sieci neuronowych do rozpoznawania twarzy}
+\section{Przyk³ad 1}
+Jako pierwsza zostanie przedstawiona architektura AlexNet zaproponowana w [11]. Nie jest ona zaprojektowana œciœle pod rozpoznawanie twarzy, jednak jest to jedna z bardziej znanych architektur do rozpoznawania obiektów na obrazie. 
+
+\subsection{Baza danych}
+Baz¹ danych na której oparte by³o uczenie sieci AlexNet by³a ImageNet. Sk³ada siê ona z 15 milionów wysokiej jakoœci zdjêæ podzielonych na oko³o 22 tysiêcy klas. Zosta³a stworzona w oparciu o ekstrakcjê danych z Internetu oraz skatalogowana przez u¿ytkowników. W bazie znajduj¹ siê zdjêcia o ró¿nych rozdzielczoœciach. AlexNet wymaga obrazów o rozmiarach 256x256, dlatego te¿ zosta³o zastosowane przeskalowanie wszystkich zdjêæ do takiej rozdzielczoœci. Wstêpnie dane nie by³y przetwarzane w jakikolwiek sposób, z wyj¹tkiem odjêcia œredniej aktywnoœci z ka¿dego piksela w zestawie treningowym. Sieæ zosta³a nauczona w zakresie wyœrodkowanych, surowych wartoœci RGB pikseli.
+
+\subsection{Uczenie sieci}
+Uczenie sieci wymaga³o du¿ej mocy obliczeniowej, dlatego zosta³y wykorzystane do tego celu dwa procesory graficzne (GTX 580). By³o to mo¿liwe dziêki zastosowaniu równoleg³ego po³¹czenia dwóch procesorów, w których ka¿dy z nich posiada³ po³owê neuronów. Równoleg³e po³¹czenie sprawia³o, ¿e dane mog³y byæ przesy³ane bezpoœrednio z jednego do drugiego procesora. Dodatkowo zosta³o jeszcze wprowadzone ograniczenie komunikacji miêdzy procesorami; mog³y przesy³aæ dane tylko w okreœlonych warstwach. Oznacza³o to na przyk³ad, ¿e filtry z warstwy 3 otrzymywa³y dane wejœciowe ze wszystkich map cech uzyskanych w warstwie 2. Jednak¿e neurony z warstwy  4 otrzymywa³y dane z warstwy 3 tylko z tych neuronów, które znajdowa³y siê na tych samych procesorach. Wybranie odpowiedniej architektury po³¹czeñ dla dwóch procesorów jest dosyæ k³opotliwe jeœli, ale takie rozwi¹zanie daje mo¿liwoœæ precyzyjnego dopasowania iloœci komunikacji do dostêpnej mocy obliczeniowej komputera. 
+
+Sieæ zosta³a nauczona z u¿yciem stochastycznego spadku gradientu z grup¹ 128 przyk³adów, pêdem = 0.9 i rozpadem wagi = 0.0005. Ma³a wartoœæ rozpadu wagi jest bardzo wa¿na dla nauki modelu - redukuje b³¹d uczenia. Wagi aktualizuje siê zgodnie ze wzorem:
+
+\begin{equation}
+\begin{gathered}
+v_{i+1} := 0.9\cdot v_{i} - 0.0005\cdot\epsilon\cdot\omega_{i}-\epsilon\cdot\left\langle \frac{\partial L}{\partial\omega}|_{\omega_{i}} \right\rangle_{D_{i}} \\
+v_{i+1} := 0.9\cdot v_{i} - 0.0005
+\end{gathered}
+\end{equation}
+
+gdzie $i$ -indeks iteracji, $v$ -zmienna pêdu, $\epsilon$ jest wskaŸnikiem nauki, a $ \left\langle \frac{\partial L}{\partial\omega}|_{\omega_{i}} \right\rangle_{D_{i}} $  jest œredni¹ $i$-tej grupy $D_{i}$ pochodnej celu. Wagi ka¿dej warstwy zosta³y zainicjalizowane z zerowego œredniego rozk³adu Gaussa z odchyleniem standardowym $=0.01$.  Zainicjalizowane zosta³y równie¿ biasy neuronów zarówno w drugiej, czwartej i pi¹tej konwolucyjnej warstwie, jaki i wszystkich warstwach sp³aszczaj¹cych ze sta³¹ równ¹ 1. Nadanie takich wartoœci pocz¹tkowych przyspiesza wczesne etapy nauki zapewniaj¹c ReLu pozytywne dane wejœciowe. Wartoœci pocz¹tkowe biasów pozosta³ych warstw zosta³y ustawione na 0. Sieæ zosta³a nauczona po oko³o 90 cyklach z u¿yciem 1.2 miliona obrazów, co zajê³o od piêciu do szeœciu dni na dwóch procesorach NVIDIA GTX 580 3GB.
+\subsection{Architektura}
+Sieæ sk³ada siê z oœmiu warstw - piêæ pierwszych warstw to warstwy konwolucyjne, a pozosta³e trzy to warstwy sp³aszczaj¹ce. 
+Wyjœcie ostatniej w pe³ni po³¹czonej warstwy jest podawane do 1000-kierunkowej transformaty Softmax, która przyporz¹dkowuje dane do ponad 1000 klas. Neurony drugiej, czwartej i pi¹tej konwolucyjnej warstwy s¹ po³¹czone tylko do tych neuronów poprzednich warstw, które znajduj¹ siê na tym samym procesorze. Neurony trzeciej warstwy konwolucyjnej po³¹czone s¹ ze wszystkimi neuronami drugiej warstwy. Neurony warstw sp³aszczaj¹cych s¹ po³¹czone ze wszystkimi neuronami warstw poprzednich. Warstwy normalizacji odpowiedzi znajduj¹ siê zaraz po pierwszej i drugiej warstwie konwolucyjnej. Warstwa max-poolingu umieszczona zosta³a za warstw¹ normalizacji odpowiedzi i pi¹t¹ warstw¹ konwolucyjn¹. Do wyjœcia ka¿dej warstwy konwolucyjnej oraz sp³aszczaj¹cej zastosowana jest funkcja aktywacji ReLU.
+
+	Pierwsza warstwa konwolucyjna przetwarza zadany obraz 224x224x3 uzywaj¹c 96 filtrów o wymiarach $11\times11\times3$ z krokiem 4 pikseli. Druga warstwa na wejœcie otrzymuje wyjœcie poprzedniej warstwy po uprzednim znormalizowaniu i redukcji (poolingu), a nastêpnie filtruje obraz z u¿yciem 256 filtrów 5x5x48. Trzecia, czwarta i pi¹ta warstwa s¹ ze sob¹ bezpoœrednio po³¹czone. Trzecia warstwa posiada 384 filtry o wymiarach 3x3x256, czwarta posiada 384 filtry o wymiarach 3x3x192, a pi¹ta - 265 filtrów 3x3x192. Ka¿da z warstw sp³aszczaj¹cych posiada 4096 neuronów. Architektura sieci AlexNet zosta³a przedstawiona na rys.4.1.  
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{architektura1.jpg}
+\caption{Architektura AlexNet}
+\end{figure}
+
+
+\subsection{Klasyfikacja}
+
+\begin{figure} [H]
+\centering
+\includegraphics[scale=0.7]{klasyfikacja1.jpg}
+\caption{Wyniki klasyfikacji}
+\end{figure}
+
+\begin{figure} [H]
+\centering
+\includegraphics[scale=0.7]{klasyfikacja2.jpg}
+\caption{Wyniki klasyfikacji}
+\end{figure}
+\subsection{Wyniki}
+
+\section{Przyk³ad 2}
+Drugim przyk³adem jest sieæ zaproponowana w [12]. sieæ ta jest zaprojektowana œciœle dla rozpoznawania twarzy.
+
+\subsection{Baza danych}
+Baz¹ danych wykorzystan¹ do uczenia sieci zosta³a baza CASIA-WebFace, która zosta³a stworzona w Chinese Academy of Sciences (CASIA). Dane takie jak zdjêcie profilowe, imiê i nazwisko oraz zdjêcia z galerii zosta³y pobrane z bazy danych aktorów ze strony IMDb. Pobrane dane nie nadawa³y siê jeszcze jako baza do nauki sieci, dlatego nale¿a³o je jeszcze przetworzyæ i oznaczyæ ka¿d¹ z twarzy. Problem stanowi³y zdjêcia z galerii, na których wystêpowa³o wiêcej osób. Do przetworzenia zdjêæ u¿yto metody grupowania podobieñstwa znaczników, czyli porównywania zdjêæ profilowych do wykrytych twarzy ze zdjêæ z galerii wspomagaj¹c siê tagami z nazwiskami dla ka¿dego zdjêcia. Po przetworzeniu, baza zosta³a rêcznie zweryfikowana i poprawiona. Ostatecznie w sieci znajduje siê 10,575 nazwisk i 494,414 zdjêæ twarzy. 
+
+\subsection{Uczenie sieci}
+Przed procesem uczenia, ka¿dy obraz zostaje przekonwertowany do skali szaroœci i znormalizowany do rozmiaru $100\times100$ wed³ug dwóch punktów charakterystycznych zaznaczonych na obrazku. 
+\begin{wrapfigure}{l}{0.5\textwidth}
+\begin{center}
+\vspace{-20pt}
+\includegraphics[scale=0.6]{twarze.jpg}
+\end{center}
+\vspace{-20pt}
+\caption{Przygotowanie zdjêcia}
+\vspace{-10pt}
+\end{wrapfigure}
+ Po normalizacji dystans pomiêdzy tymi dwoma punktami wynosi 25 pikseli. Poniewa¿ twarz jest prawie symetryczna, mo¿na podwoiæ zestaw treningowy poprzez odbicie lustrzane ka¿dego zdjêcia. Dziêki temu zapewniona jest ró¿norodnoœæ pozy. Z tak¹ iloœci¹ danych zmniejsza siê prawdopodobieñstwo do przeuczenia sieci, dlatego te¿ rozpad wagi zosta³ ustawiony na 0 dla wszystkich warstw konwolucyjnych i na 0.0005 dla warstw w pe³ni po³¹czonych. 
+Wspó³czynnik uczenia jest pocz¹tkowo ustawiony na 0.01, po czym stopniowo maleje do 0.00001. Poniewa¿ wspó³czynnik zbie¿noœci sieci Softmax jest szybszy ni¿ funkcja kosztów sieci Contrastive, waga jest pocz¹tkowo ustawiona na ma³¹ wartoœæ 0.00032, by póŸniej stopniowo j¹ zwiêkszaæ do wartoœci 0.0064. Do uczenia sieci zosta³a zastosowana publiczna sieæ cuda-convnet [13]. Dla kosztów sieci Softmax wystarcz¹ jedynie zdjêcia twarzy i ich podpisy, natomiast dla kosztów sieci Contrastive nale¿y wygenerowaæ pary twarzy przez pobrane próbki z zestawu treningowego. Aby ograniczyæ zu¿ycie pamiêci i miejsca na dysku spróbkowano pozytywne i negatywne pary twarzy w ka¿dej partii online.[14]
+\subsection{Architektura}
+Architektura g³êbokiej sieci konwolucyjnej sk³ada siê z po³¹czenia kilku rozwi¹zañ z ostatnich udanych sieci zawieraj¹cych bardzo g³êbok¹ architekturê [14], reprezentacje nisko wymiarow¹ i liczne funkcje strat (loss function) [15]. Ma³e rozmiary filtrów oraz g³êboka architektura zmniejsza liczbê parametrów i zwiêksza nieliniowoœæ sieci. Niskopoziomowa reprezentacja jest zgodna z za³o¿eniem, ¿e obrazy twarzy zwykle le¿¹ na wielowymiarowej rozmaitoœci matematycznej i niskowymiarowe ograniczenia mog¹ zmniejszyæ z³o¿onoœæ sieci. £¹cz¹c  identyfikacjê i weryfikacjê funkcji strat zosta³o przeanalizowane w [15], które mog¹ nauczyæ siê wiêcej reprezentacji dyskryminuj¹cych ni¿ tylko sam Softmax.
+
+Rozmiar wejœciowej warstwy to 100x100x1 kana³, np. szary obraz. Zaproponowana sieæ zawiera 10 warstw konwolucyjnych, 5 warstw poolingu i 1 w pe³ni po³¹czon¹ warstwê. Wiêcej szczegó³ów dotycz¹cych architektury pokazuje tabela. \\
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+Nazwa & Typ & Rozmiar filtra & Rozmiar danych & G³êbokoœæ & \#Parametry\\
+ & & /krok & wyjœciowych & & \\ 
+\hline \hline
+Conv11 & konwolucyjny & $3\times3$ / 1 & $100\times100\times32$ & 1 & 0.28K \\
+Conv11 & konwolucyjny & $3\times3$ / 1 & $100\times100\times64$ & 1 & 18K \\ \hline
+Pool1 & maksimum & $2\times2$ / 2 & $50\times50\times64$ & 0 &  \\ \hline
+Conv21 & konwolucyjny & $3\times3$ / 1 & $50\times50\times64$ & 1 & 0.28K \\
+Conv22 & konwolucyjny & $3\times3$ / 1 & $50\times50\times128$ & 1 & 18K \\ \hline
+Pool2 & maksimum & $2\times2$ / 2 & $25\times25\times128$ & 0 &  \\ \hline
+Conv31 & konwolucyjny & $3\times3$ / 1 & $25\times25\times96$ & 1 & 0.28K \\
+Conv32 & konwolucyjny & $3\times3$ / 1 & $25\times25\times192$ & 1 & 18K \\ \hline
+Pool3 & maksimum & $2\times2$ / 2 & $13\times13\times192$ & 0 &  \\ \hline
+Conv41 & konwolucyjny & $3\times3$ / 1 & $13\times13\times128$ & 1 & 0.28K \\
+Conv42 & konwolucyjny & $3\times3$ / 1 & $13\times13\times256$ & 1 & 18K \\ \hline
+Pool4 & maksimum & $2\times2$ / 2 & $7\times7\times256$ & 0 &  \\ \hline
+Conv51 & konwolucyjny & $3\times3$ / 1 & $7\times7\times160$ & 1 & 0.28K \\
+Conv52 & konwolucyjny & $3\times3$ / 1 & $7\times7\times320$ & 1 & 18K \\ \hline
+Pool5 & œrednia & $7\times7$ / 1 & $1\times1\times320$ & 0 &  \\ \hline
+Dropout & redukcja po³¹czeñ &  & $1\times1\times320$ & 0 & \\
+ & (40$\%$)&  & & &  \\ \hline
+Fc6 & w pe³ni po³¹czone &  & 10575 & 1 & 3305K\\ \hline
+Cost1 & softmax &  & 10575 & 1 & \\ \hline
+Cost2 & kontrastuj¹cy &  & 1 & 0 & \\ \hline \hline
+Suma & & & & 11 & 5015K \\ \hline
+
+\end{tabular}
+
+Rozmiar filtrów to $3\times3$. Pierwsze cztery wykorzystuj¹ max-pooling (funkcje maksimum z obszaru filtru), ostatnia wykorzystuje average-pooling (œredni¹ z obszaru filtru). Architektura nie jest w pe³ni optymalna przez ograniczenie mocy obliczeniowej procesora. Ma³e filtry i bardzo g³êboka architektura zosta³a zaproponowana w [14] i [16]. [16] osi¹gn¹³ wysokie wyniki w konkursie ImageNet 2014 dziêki 19-warstwowej sieci. W miêdzyczasie, [16] osi¹gn¹³ trochê lepsze rezultaty ni¿ [14] dziêki 22-warstwowej sieci. Ta architektura zawiera w sobie rozwi¹zania z obu tych sieci. U¿yte zosta³y wiele ma³ych filtrów do aproksymacji wiêkszych filtrów i usuniêcia nadmiarowych w pe³ni po³¹czonych warstw aby zmniejszyæ liczbê parametrów. Ostatecznie sieæ u¿ywa filtrów $3\times3$ we wszystkich warstwach konwolucyjnych i posiada tylko jedn¹ warstwê w pe³ni po³¹czon¹. 
+
+\subsection{Klasyfikacja}
+Klasyfikacja zosta³a przeprowadzona na dwóch zestawach danych: LFW (Life 
+Faces in the Wild) i YTF (YouTube Faces). 
+	Istniej¹ trzy protoko³y do raportowania wydajnoœci LFW: protokó³ bez nadzoru, ograniczony i nieograniczony. Do oceny wyników przedstawienia twarzy u¿ywa siê protoko³u bez nadzoru, a pozosta³ych dwóch u¿ywa siê do oceny uczenia metrycznego lub do oceny ca³ej metody. Dla wszystkich protoko³ów zestaw ucz¹cy jest œciœle okreœlony - zawiera 6000 par twarzy w 10 grupach.  Wyniki przedstawia tabela:
+
+Zbiór testowy YTF zosta³ u¿yty aby przetestowaæ zdolnoœæ sieci do generalizacji. Wyniki przedstawia tabela2. 
+
+\subsection{Wyniki}
+\begin{tabular}{|c|c|c|c|} \hline
+Metoda & Sieæ & Dok³adnoœæ  $\pm$ BS & Protokó³ \\ \hline
+DeepFace & 1 & 95.92 $\pm$ 0.29 $\%$ & bez nadzoru\\
+DeepFace & 1 & 97.00 $\pm$ 0.28 $\%$ & ograniczony\\
+DeepFace & 3 & 97.15 $\pm$ 0.27 $\%$ & ograniczony\\
+DeepFace & 7 & 97.35 $\pm$ 0.25 $\%$ & nieograniczony\\ \hline \hline
+DeepID2 & 1 & 95.43 $\%$ & nieograniczony\\
+DeepID2 & 2 & 97.28 $\%$ & nieograniczony\\
+DeepID2 & 4 & 97.75 $\%$ & nieograniczony\\
+DeepID2 & 25 & 98.97 $\%$ & nieograniczony\\ \hline \hline
+A & 1 & 96.13 $\pm$ 0.30 $\%$ & bez nadzoru\\
+B & 1 & 96.30 $\pm$ 0.35 $\%$ & bez nadzoru\\
+C & 1 & 97.30 $\pm$ 0.31 $\%$ & bez nadzoru\\
+D & 1 & 96.33 $\pm$ 0.42 $\%$ & bez nadzoru\\
+E & 1 & 97.73 $\pm$ 0.31 $\%$ &  nieograniczony\\ \hline
+\end{tabular} \\
+
+gdzie
+\begin{itemize}
+\item A: DR + Cosine;
+\item B: DR + PCA on CASIA-WebFace + Cosine;
+\item C: DR + Joint Bayes on CASIA-WebFace;
+\item D: DR + PCA on LFW training set + Cosine;
+\item E: DR + Joint Bayse on LFW training set.
+\end{itemize}
+
+\begin{tabular}{|c|c|c|c|} \hline
+Metoda & Sieæ & Dok³adnoœæ  $\pm$ BS & Protokó³ \\ \hline
+DeepFace & 1 & 91.4 $\pm$ 1.1 $\%$ & z nadzorem\\ \hline \hline
+A & 1 & 88.00 $\pm$ 1.5 $\%$ & bez nadzoru\\
+B & 1 & 90.60 $\pm$ 1.24 $\%$ & bez nadzoru\\
+C & 1 & 92.24 $\pm$ 1.28 $\%$ & z nadzorem\\ \hline
+\end{tabular}
+
+\begin{itemize}
+\item A: DR + Cosine;
+\item D: DR + PCA on YTF training set + Cosine;
+\item E: DR + Joint Bayes on YTF training set.
+\end{itemize}
+
+
+\section{Przyk³ad 3}
+W [17] zosta³a przedstawiona sieæ do rozpoznawania twarzy w czasie rzeczywistym (np. w monitoringu). Zosta³o to osi¹gniête poprzez zastosowanie bazy danych z ró¿nymi zdjêciami tej samej osoby (z ró¿n¹ poz¹, wyrazem twarzy).
+
+\subsection{Baza danych}
+Baza danych, która zosta³a u¿yta dla tej sieci to baza ORL. Zawiera ona 10 zestawów zdjêæ od 40 ró¿nych osób. Niektóre z nich zosta³y zrobione w ró¿nym czasie. Ró¿norodnoœæ bazy zapewniaj¹ wariacje w obrêbie tej samej osoby - otwarte/zamkniête oczy, uœmiech/bez uœmiechu, z okularami i bez. Wszystkie zdjêcia zosta³y zrobione na ciemnym, jednorodnym tle w pozycji en face z tolerancj¹ odchylenia lub rotacji o 20 stopni. Wszystkie obrazy s¹ w skali szaroœci o rozdzielczoœci 92$\times$112.
+\subsection{Uczenie sieci}
+Przed uczeniem ka¿dy obraz zosta³ poddany próbkowaniu. Polega ono na tym, ¿e ka¿d¹ próbkê otrzymuje siê nak³adaj¹c na oryginalny obraz okna o wymiarach np. 5$\times$5, a nastêpnie wyodrêbnia siê z tego obszaru jeden piksel, który znajdzie siê w obrazie wynikowym. Potem okno jest przesuwane o 4 piksele i powtarza siê poprzednie kroki a¿ do przepróbkowania ca³ego obrazu. Nastêpnie nastêpuje proces uczenia za pomoc¹ map samoorganizuj¹cych (np. z trzema wymiarami i piêcioma wêz³ami na wymiar co daje w sumie $5^3$ = 125 wêz³ów). Mapa jest trenowana na wektorach otrzymanych z poprzedniego etapu. Samoorganizuj¹ca mapa kwantyzuje 25-wymiarowy wektor wejœciowy do 125 wartoœci uporz¹dkowanych topologicznie. Trzy wymiary mapy mo¿na traktowaæ jako trzy cechy. Zosta³ równie¿ przeprowadzony eksperyment, gdzie zast¹piono samoorganizuj¹ce mapy na transformatê Karhunena-Loévego. W takim przypadku, transformata rzutuje wektory z 25-wymiarowej przestrzeni na przestrzeñ trójwymiarow¹.  
+Kolejnym krokiem jest ponowne u¿ycie okna na zestawie ucz¹cym i testowym. 
+Lokalne próbki obrazu s¹ przekazywane do mapy po ka¿dym kroku, tworz¹c w ten sposób nowe zestawy ucz¹ce i testowe w przestrzeni wyjœciowej stworzonej przez samoorganizuj¹ce siê mapy. 
+Powsta³e obrazy wejœciowe s¹ reprezentowane przez 3 mapy, gdzie ka¿da z nich odpowiada wymiarom w samoorganizuj¹cych mapach. Rozmiar tych map jest równy rozmiarom obrazów ($92\times112$) podzielonych przez rozmiar kroku okna (w tym wypadku dla kroku 4, mapy maja rozmiar $23\times28$)
+Sieæ konwolucyjna jest uczona na nowo powsta³ym zestawie testowym.
+
+\subsection{Architektura}
+Sieæ konwolucyjna sk³ada siê z piêciu warstw, nie wliczaj¹c warstwy wyjœciowej. 
+Dla ka¿dej klasyfikacji zosta³a policzona ocena wiarygodnoœci: $y_{m}(y_{m}-y_{2m})$, gdzie $y_{m}$ jest maksimum wyjœcia, $y_{2m}$ jest drugim maksimum wyjœcia (dla wyjœæ które zosta³y poddane transformacie softmax: 
+\begin{equation}
+y_{i} = \frac{\exp(u_{i})}{\sum_{j=1}^{k}\exp(u_{j})},
+\end{equation}
+gdzie $u_{i }$-oryginalny wektor wyjœciowy, $y_{i}$ wynik transformaty, k- iloœæ danych wyjœciowych). Sieæ zosta³a poddana uczeniu z wsteczn¹ propagacj¹ b³êdu w sumie dla 20 000 aktualizacji. Dok³adn¹ architekturê sieci zawarto w tabeli:
+
+\begin{table} [H]
+\begin{tabular}{|c|c|c|c|c|c|c|c|} \hline
+Warstwa & Typ & Jednostka & x & y & Pole & Pole & Po³¹czenia \\ 
+& & & & & recep. x & recep. y & $ (\%) $ \\ \hline \hline
+1 & Konwolucyjny & 20 & 21 & 26 & 3 & 3 & 100\\
+2 & Podpróbkuj¹cy & 20 & 9 & 11 & 2 & 2 & - \\
+3 & Konwolucyjny & 25 & 9 & 11 & 3 & 3 & 30\\
+4 &  Podpróbkuj¹cy & 25 & 5 & 6 & 2 & 2 & - \\ 
+5 & W pe³ni po³¹czony & 40 & 1 & 1 & 5 & 6 & 100\\ \hline
+
+\end{tabular}
+\caption{Architektura sieci}
+\end{table}
+Po³¹czenia($\%$) informuj¹ o po³¹czeniach wêz³ów z poprzedni¹ warstw¹, wartoœæ mniejsza ni¿ 100$\%$ redukuje iloœæ wag w sieci i mo¿e ulepszyæ zdolnoœæ do generalizacji sieci. 
+
+\subsection{Klasyfikacja}
+Zosta³o przeprowadzonych kilka eksperymentów. Dla ka¿dego z nich by³o przygotowanych piêæ obrazów do uczenia i piêæ obrazów testowych dla ka¿dej osoby, co da³o w sumie 200 obrazów do uczenia i 200 obrazów testowych. 
+¯adne zdjêcia nie powtarza³y siê w obydwóch zestawach.    
+Sta³e wartoœci dla ka¿dego eksperymentu:
+\begin{itemize}
+\item liczba klas: 40,
+\item metoda redukcji wymiarów: mapy samoorganizuj¹ce,
+\item wymiar map samoorganizuj¹cych: 3,
+\item iloœæ wêz³ów na ka¿dy wymiar mapy: 5,
+\item iloœæ obrazów do uczenia na klasê: 5.
+\end{itemize}
+
+\subsection{Wyniki}
+Tabele dla ka¿dego eksperymentu pokazuj¹ wspó³czynnik b³êdu przy zmiennych, badanych  wartoœciach. Wyniki s¹ œredni¹ z 3 symulacji.
+\begin{enumerate}
+\item Wp³yw wymiaru mapy samoorganizuj¹cej - badanie dla wymiarów od 1 do 4. Najlepszy wynik dla mapy trójwymiarowej.
+
+\begin{tabular}{|c|c|c|c|c|} \hline
+Wymiar & 1 & 2 & 3 & 4 \\ \hline \hline 
+Wspó³czynnik b³êdu & 8.25$\%$ & 6.75$\%$ & 5.75$\%$ & 5.83$\%$ \\ \hline 
+\end{tabular}
+
+\item Wp³yw poziomu kwantyzacji mapy samoorganizuj¹cej  - badanie dla mapy trójwymiarowej od 4 do 8 wêz³ów na ka¿dy wymiar. Najlepszy wynik uzyskano dla 8 wêz³ów. Jest to te¿ najlepszy wynik wœród wszystkich przeprowadzonych eksperymentów.
+
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+ Poziom & 4 & 5 & 6 & 7 & 8 \\ \hline \hline 
+Wspó³czynnik b³êdu & 8.5$\%$ & 5.75$\%$ & 6.0$\%$ & 5.75$\%$ & 3.83$\%$ \\ \hline 
+\end{tabular}
+
+\item Zast¹pienie map samoorganizuj¹cych na transformatê Karhunena-Loévego. Najlepszy wynik da³y mapy samoorganizuj¹ce.
+
+\begin{tabular}{|c|c|c|} \hline
+Redukcja wymiarów & Dyskretna transformata KL & SOM \\ \hline \hline 
+Wspó³czynnik b³êdu & 5.33$\%$ & 3.83$\%$ \\ \hline 
+\end{tabular}
+\item Zast¹pienie konwolucyjnej sieci neuronowej wielowarstwowym perceptronem. Najlepszy wynik da³y mapy samoorganizuj¹ce.
+
+\begin{tabular}{|c|c|c|} \hline
+ & Dyskretna transformata KL & SOM \\ \hline \hline 
+WWP & 41.2$\%$ & 39.6$\%$ \\ 
+CN & 5.33$\%$ & 3.83$\%$ \\ \hline 
+\end{tabular}
+\item Wp³yw iloœci zdjêæ jednej osoby u¿ywanych w zestawie treningowym (a - œrednia na klasê, b - jeden na obraz). Najlepszy wynik dla sieci konwolucyjnej z SOM z u¿yciem piêciu zdjêæ. 
+
+\begin{tabular}{|c|c|c|c|c|c|} \hline
+Zdjêcia na osobê & 1 & 2 & 3 & 4 & 5  \\ \hline \hline 
+Eigenfaces(a) & 38.6$\%$ & 28.8$\%$ & 28.9$\%$ & 27.1 $\%$ &26$\%$ \\ 
+Eigenfaces(b) & 38.6$\%$ & 20.9$\%$ & 18.2$\%$ & 15.4 $\%$ &10.5 $\%$  \\ \hline 
+DT-KL+CN & 34.2 $\%$ & 17.2 $\%$ & 13.2 $\%$ & 12.1 $\%$ & 7.5$\%$ \\ \hline
+CN+SOM & 30.0 $\%$ & 17.0$\%$ & 11.8 $\%$ & 7.1$\%$ & 3.5$\%$ \\ \hline
+\end{tabular}
+\end{enumerate}
+
+
+\chapter{Wady, zalety, udoskonalenia}
+
+
+
+
+\begin{thebibliography}{10}
+
+\bibitem{Bledsoe} 
+Bledsoe, W.W,\textit{The model method in facial recognition} Panoramic Research Inc., Palo Alto, CA, Rep. PRI:15, August 1966
+
+\bibitem{Bledsoe2}
+Bledsoe, W.W,\textit{Man machine facial recognition} , Panoramic Research Inc., Palo Alto, CA, Rep. PRI:22, August 1996
+
+\bibitem{Sirovich} 
+L. Sirovich and M. Kirby, \textit{Low-Dimensional procedure for the characterization of human faces}. Journal of optical society of America Vol 4 page 519 March 1987
+
+\bibitem{cite4}
+Mattew A Turk and Alex P. Pentland, \textit{Recognition using Eigen faces, vision and modeling group}, The media laboratory , Massachusetts Institute of Technology, 1991
+
+\bibitem{cite5} 
+Jonathon Phillips, Patrick J. Rauss, and Sandor Z. De, FERET (Face Recognition Technology) Recognition Algorithm Development and Test Results, Army Research Laboratory (ARL), October 1996
+
+\bibitem{cite6}
+ P. Jonathon Phillips, Patrick J. Flynn Todd Scruggs Kevin W. Bowyer, William Worek, Preliminary Overview of the Face Recognition Grand Challenge, IEEE Conference on Computer Vision and Pattern Recognition 2005
+
+\bibitem{cite7} 
+Omkar M. Parkhi, Andrea Vedaldi, Andrew Zisserman, Deep Face Recognition, Visual Geometry Group, Department of Engineering Science, University of Oxford
+
+\bibitem{cite8}
+West, J (2017) History of Face Recognition – Facial recognition software [online] FaceFirst Face Reconition facial recognition software available on https://www.facefirst.com/blog/brief-of-face recognition-software/ [Accessed 15 Oct. 2018
+
+\bibitem{cite9} 
+Carey, S., and Diamond, R, "From Piecemeal to Configurational Representation of Faces", Science 195, pp.312 313, (1977). 
+
+\bibitem{cite10}
+Bledsoe, W.W,\textit{"Man machine facial recognition"} , Panoramic Research Inc., Palo Alto, CA, Rep. PRI:22, August 1996
+
+\bibitem{cite11}
+Bledsoe, W.W,\textit{"Man machine facial recognition"} , Panoramic Research Inc., Palo Alto, CA, Rep. PRI:22, August 1996
+
+\bibitem{cite12}
+Bledsoe, W.W,\textit{"Man machine facial recognition"} , Panoramic Research Inc., Palo Alto, CA, Rep. PRI:22, August 1996
+
+\bibitem{cite13}
+Bledsoe, W.W,\textit{"Man machine facial recognition"} , Panoramic Research Inc., Palo Alto, CA, Rep. PRI:22, August 1996
+
+
+
+\end{thebibliography}

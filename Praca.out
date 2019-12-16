@@ -1,0 +1,33 @@
+\BOOKMARK [0][-]{chapter.1}{Wprowadzenie do tematu}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Wstep}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Historia}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{\200}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Zastosowania}{chapter.1}% 5
+\BOOKMARK [0][-]{chapter.2}{Konwolucyjne sieci neuronowe}{}% 6
+\BOOKMARK [1][-]{section.2.1}{Podstawy}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{Architektura sieci}{chapter.2}% 8
+\BOOKMARK [2][-]{subsection.2.2.1}{Warstwa konwolucyjna}{section.2.2}% 9
+\BOOKMARK [2][-]{subsection.2.2.2}{Warstwa redukujaca \(pooling\)}{section.2.2}% 10
+\BOOKMARK [2][-]{subsection.2.2.3}{Warstwa sp\233aszczajaca}{section.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.4}{Warstwa wyjscia}{section.2.2}% 12
+\BOOKMARK [0][-]{chapter.3}{Algorytm}{}% 13
+\BOOKMARK [0][-]{chapter.4}{Zastosowanie konwolucyjnych sieci neuronowych do rozpoznawania twarzy}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Przyk\233ad 1}{chapter.4}% 15
+\BOOKMARK [2][-]{subsection.4.1.1}{Baza danych}{section.4.1}% 16
+\BOOKMARK [2][-]{subsection.4.1.2}{Uczenie sieci}{section.4.1}% 17
+\BOOKMARK [2][-]{subsection.4.1.3}{Architektura}{section.4.1}% 18
+\BOOKMARK [2][-]{subsection.4.1.4}{Klasyfikacja}{section.4.1}% 19
+\BOOKMARK [2][-]{subsection.4.1.5}{Wyniki}{section.4.1}% 20
+\BOOKMARK [1][-]{section.4.2}{Przyk\233ad 2}{chapter.4}% 21
+\BOOKMARK [2][-]{subsection.4.2.1}{Baza danych}{section.4.2}% 22
+\BOOKMARK [2][-]{subsection.4.2.2}{Uczenie sieci}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.3}{Architektura}{section.4.2}% 24
+\BOOKMARK [2][-]{subsection.4.2.4}{Klasyfikacja}{section.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.2.5}{Wyniki}{section.4.2}% 26
+\BOOKMARK [1][-]{section.4.3}{Przyk\233ad 3}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.3.1}{Baza danych}{section.4.3}% 28
+\BOOKMARK [2][-]{subsection.4.3.2}{Uczenie sieci}{section.4.3}% 29
+\BOOKMARK [2][-]{subsection.4.3.3}{Architektura}{section.4.3}% 30
+\BOOKMARK [2][-]{subsection.4.3.4}{Klasyfikacja}{section.4.3}% 31
+\BOOKMARK [2][-]{subsection.4.3.5}{Wyniki}{section.4.3}% 32
+\BOOKMARK [0][-]{chapter.5}{Wady, zalety, udoskonalenia}{}% 33
