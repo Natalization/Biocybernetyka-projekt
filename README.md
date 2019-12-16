@@ -1,0 +1,2 @@
+# Biocybernetyka-projekt
+Wypracowanie biocybernetyka
